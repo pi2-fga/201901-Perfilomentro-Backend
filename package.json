@@ -16,5 +16,11 @@
   "bugs": {
     "url": "https://github.com/pi2-fga/2019-Perfilomentro-Backend/issues"
   },
-  "homepage": "https://github.com/pi2-fga/2019-Perfilomentro-Backend#readme"
+  "homepage": "https://github.com/pi2-fga/2019-Perfilomentro-Backend#readme",
+  "devDependencies": {
+    "nodemon": "^1.19.0"
+  },
+  "dependencies": {
+    "express": "^4.16.4"
+  }
 }
