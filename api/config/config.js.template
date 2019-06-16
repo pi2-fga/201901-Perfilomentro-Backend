@@ -1,0 +1,14 @@
+const environments = {
+  development: {
+    port: process.env.PORT || 3000,
+    mongoDBURI: "mongodb://localhost:27017/perfilometer",
+    jwtSecret: "See section 'Environment Configurations' in README.md",
+  },
+  test: {
+    port: process.env.PORT || 3000,
+    mongoDBURI: "mongodb://localhost:27017/perfilometer",
+    jwtSecret: "See section 'Environment Configurations' in README.md",
+  },
+}
+
+export { environments as environmentConfigurations }

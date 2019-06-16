@@ -1,18 +1,22 @@
 {
   "name": "perfilometro",
   "version": "1.0.0",
-  "description": "",
+  "description": "Perfilometer Main Server",
   "main": "server.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node server.js"
+    "start": "babel-node server/server.js --exec babel-node",
+    "autostart": "nodemon server/server.js --exec babel-node",
+    "serve": "node dist/server.js",
+    "build": "babel server -d dist && cp package.json dist/",
+    "generate:secret": "node -r crypto-extra -p 'crypto.randomString(64)'",
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/pi2-fga/2019-Perfilomentro-Backend.git"
   },
-  "author": "",
-  "license": "ISC",
+  "private": true,
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/pi2-fga/2019-Perfilomentro-Backend/issues"
   },
