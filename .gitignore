@@ -91,4 +91,8 @@ typings/
 # Config files
 config.js
 
+# Production Build
+dist/*
+!dist/Procfile
+
 # End of https://www.gitignore.io/api/node
