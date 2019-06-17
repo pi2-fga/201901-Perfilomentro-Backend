@@ -25,7 +25,7 @@ if (environment === 'development' || environment === 'test') {
   // Set new configurations
   var config = {
     jwtSecret: process.env.JWT_SECRET,
-    mongoDBURI: process.env.MONGODB_URI,
+    mongoDBURI: process.env.MONGOLAB_ROSE_URI,
     port: process.env.PORT,
     isProduction: true,
   }
