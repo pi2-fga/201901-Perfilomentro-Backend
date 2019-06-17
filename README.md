@@ -1,8 +1,8 @@
 # Perfilometer - Server
 
 [![licence MIT](https://img.shields.io/badge/licence-MIT-yellow.svg)](./LICENSE)
-[![version 0.1.0](https://img.shields.io/badge/version-0.1.0-green.svg)](./LICENSE)
-[![platform NodeJS](https://img.shields.io/badge/platform-NodeJS-blue.svg)](./LICENSE)  
+[![version 0.1.0](https://img.shields.io/badge/version-0.1.0-green.svg)](https://perfilometer-node.herokuapp.com/)
+[![platform NodeJS](https://img.shields.io/badge/platform-NodeJS-blue.svg)](https://nodejs.org/en/)  
 
 Perfilometer Server is a NodeJS server to insert and get roads with perfilometer metrics.
 
