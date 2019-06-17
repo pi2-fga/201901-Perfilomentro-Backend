@@ -1,9 +1,10 @@
 // Import configurations
-import { environmentConfigurations } from './config'
 const environment = process.env.NODE_ENV || 'development';
 
 // Select environment mode
 if (environment === 'development' || environment === 'test') {
+  // Import config file
+  const { environmentConfigurations } = require('./config')
   // Getting configurations
   try {
     var config = 

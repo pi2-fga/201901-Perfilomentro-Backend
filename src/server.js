@@ -36,7 +36,7 @@ if (environment == "development") {
 
 // Server listen
 server.listen(config.port, (req, res) => {
-  console.log(color.green('Server is up on port ' + config.port));
+  console.log(color.green(`Server is up on port ${config.port} on ${environment} mode`))
 })
 
 // Prevent Heroku Production from sleeping
