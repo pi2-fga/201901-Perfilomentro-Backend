@@ -1,5 +1,9 @@
 # Perfilometer - Server
 
+[![licence MIT](https://img.shields.io/badge/licence-MIT-yellow.svg)](./LICENSE)
+[![version 0.1.0](https://img.shields.io/badge/version-0.1.0-green.svg)](./LICENSE)
+[![platform NodeJS](https://img.shields.io/badge/platform-NodeJS-blue.svg)](./LICENSE)  
+
 Perfilometer Server is a NodeJS server to insert and get roads with perfilometer metrics.
 
 The main server is available on [Heroku Apps](https://perfilometer-node.herokuapp.com/)
@@ -10,7 +14,7 @@ The main server is available on [Heroku Apps](https://perfilometer-node.herokuap
 
 - [MongoDB](https://www.mongodb.com/)
 - [Node ~v6.10.2](https://nodejs.org/)
-- [Yarn](https://yarnpkg.com/) or [NPM](https://npm.com/)
+- [Yarn](https://yarnpkg.com/) or [NPM](https://npmjs.com/)
 
 ### Optional
 
