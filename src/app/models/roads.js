@@ -17,11 +17,11 @@ const roadSchema = new mongoose.Schema({
   },
   trajectory : {
     required: true,
-    type: [Number, Number],
+    type: [Number],
   },
   lasers : {
     required: true,
-    type: [Number][Number],
+    type: [Number],
   },
 })
 

@@ -7,6 +7,7 @@ import { environment, config } from './config/environment'
 import "babel-polyfill"
 import bodyParser from 'body-parser'
 import express from 'express'
+import color from 'colors/safe'
 
 // Middleware imports
 import { apiProtocol } from './middleware/api-protocol'
@@ -35,7 +36,7 @@ if (environment == "development") {
 
 // Server listen
 server.listen(config.port, (req, res) => {
-  console.log('Server is up on port ' + port);
+  console.log(color.green('Server is up on port ' + config.port));
 })
 
 // Prevent Heroku Production from sleeping

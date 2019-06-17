@@ -6,7 +6,11 @@ const environment = process.env.NODE_ENV || 'development';
 if (environment === 'development' || environment === 'test') {
   // Getting configurations
   try {
-    var config = environmentConfigurations[environment]
+    var config = 
+    config = {
+      ...environmentConfigurations[environment],
+      isProduction: true,
+    }
   } catch(e) {
     console.error("Read section 'Environment Configurations' in the README.md" );
     process.exit(1)
@@ -22,6 +26,7 @@ if (environment === 'development' || environment === 'test') {
     jwtSecret: process.env.JWT_SECRET,
     mongoDBURI: process.env.MONGODB_URI,
     port: process.env.PORT,
+    isProduction: true,
   }
 
   // Validating configurations
