@@ -89,66 +89,74 @@ The main server is available on [Heroku Apps](https://perfilometer-node.herokuap
 Route to get medition historic of all roads.  
 * **Path**: /api/roads/
 * **Type**: GET
+* **Headers**: `api-version`: `0.1.0`
 * **Response**:
 ```json
 {
-    "0": {
-        "identifier": "d12d120dh21dn21",
-        "name": "EPIA Sul - Norte 1",
-        "lasers": {
-            "0": [0, 1, 0, 0, 0],
-            "1": [0, 1, 0, 0, 0],
-            "2": [0, 1, 0, 0, 0],
-            "3": [0, 2, 0, -1, 0],
-            "4": [0, 1, 0, 0, 0]
-        },
-        "locations": {
-            "0": {
-                "latitude": 12.12131412,
-                "longitude": 13.1213131
-            },
-            "1": {
-                "latitude": 12.12131412,
-                "longitude": 13.1213132
-            },
-            "2": {
-                "latitude": 12.12131413,
-                "longitude": 13.1213133
-            }
-        },
-        "date": {
-            "start": "2019-07-04T04:27:47+00:00",
-            "end": "2019-07-04T05:27:47+00:00"
-        }	
+    "api": {
+        "version": "0.1.0"
     },
-    "1": {
-        "identifier": "1d0129jd018h0121k2",
-        "name": "EPIA Sul - Norte 2",
-        "lasers": {
-            "0": [0, 1, 1, 0, 2],
-            "1": [0, 1, 0, 0, 0],
-            "2": [1, 3, 0, -1, 0],
-            "3": [0, 2, 0, -1, 0],
-            "4": [0, 1, 0, 0, 0]
-        },
-        "locations": {
-            "0": {
-                "latitude": 12.12131412,
-                "longitude": 13.1213131
-            },
-            "1": {
-                "latitude": 12.12131412,
-                "longitude": 13.1213132
-            },
-            "2": {
-                "latitude": 12.12131413,
-                "longitude": 13.1213133
-            }
-        },
-        "date": {
-            "start": "2019-07-04T04:27:47+00:00",
-            "end": "2019-07-04T05:27:47+00:00"
-        }	
+    "data": {
+        "roads": [
+			{
+                "identifier": "0s2j01db2buf4fjn",
+				"name": "EPIA Sul - Norte 1",
+				"lasers": [
+				    [0, 1, 0, 0, 0],
+				    [0, 1, 0, 0, 0],
+				    [0, 1, 0, 0, 0],
+				    [0, 2, 0, -1, 0],
+				    [0, 1, 0, 0, 0]
+				],
+				"locations": [
+					{
+						"latitude": 12.12131412,
+						"longitude": 13.1213131
+					},
+					{
+						"latitude": 12.12131412,
+						"longitude": 13.1213132
+					},
+					{
+						"latitude": 12.12131413,
+						"longitude": 13.1213133
+					}
+				],
+				"date": {
+					"start": "2019-07-04T04:27:47+00:00",
+					"end": "2019-07-04T05:27:47+00:00"
+				}	
+			},
+			{
+                "identifier": "1d0129jd018h0121k2",
+				"name": "EPIA Sul - Norte 2",
+				"lasers": [
+				    [0, 1, 1, 0, 2],
+				    [0, 1, 0, 0, 0],
+				    [1, 3, 0, -1, 0],
+				    [0, 2, 0, -1, 0],
+				    [0, 1, 0, 0, 0]
+				],
+				"locations": [
+					{
+						"latitude": 12.12131412,
+						"longitude": 13.1213131
+					},
+					{
+						"latitude": 12.12131412,
+						"longitude": 13.1213132
+					},
+					{
+						"latitude": 12.12131413,
+						"longitude": 13.1213133
+					}
+				],
+				"date": {
+					"start": "2019-07-04T04:27:47+00:00",
+					"end": "2019-07-04T05:27:47+00:00"
+				}	
+			}
+		]
     }
 }
 ```  
@@ -159,37 +167,45 @@ Route to get medition historic of all roads.
 Route to get medition of one specific road.  
 * **Path**: /api/roads/:id
 * **Type**: GET
+* **Headers**: `api-version`: `0.1.0`
 * **Query**: identifier of road. Example: `1d0129jd018h0121k2`
 * **Response**:
 ```json
 {
-    "identifier": "1d0129jd018h0121k2",
-    "name": "EPIA Sul - Norte 2",
-    "lasers": {
-        "0": [0, 1, 1, 0, 2],
-        "1": [0, 1, 0, 0, 0],
-        "2": [1, 3, 0, -1, 0],
-        "3": [0, 2, 0, -1, 0],
-        "4": [0, 1, 0, 0, 0]
+    "api": {
+        "version": "0.1.0"
     },
-    "locations": {
-        "0": {
-            "latitude": 12.12131412,
-            "longitude": 13.1213131
-        },
-        "1": {
-            "latitude": 12.12131412,
-            "longitude": 13.1213132
-        },
-        "2": {
-            "latitude": 12.12131413,
-            "longitude": 13.1213133
+    "data": {
+        "road": {
+            "identifier": "1d0129jd018h0121k2",
+            "name": "EPIA Sul - Norte 2",
+            "lasers": [ 
+                [0, 1, 1, 0, 2],
+                [0, 1, 0, 0, 0],
+                [1, 3, 0, -1, 0],
+                [0, 2, 0, -1, 0],
+                [0, 1, 0, 0, 0]
+            ],
+            "locations": [
+                {
+                    "latitude": 12.12131412,
+                    "longitude": 13.1213131
+                },
+                {
+                    "latitude": 12.12131412,
+                    "longitude": 13.1213132
+                },
+                {
+                    "latitude": 12.12131413,
+                    "longitude": 13.1213133
+                }
+            ],
+            "date": {
+                "start": "2019-07-04T04:27:47+00:00",
+                "end": "2019-07-04T05:27:47+00:00"
+            }
         }
-    },
-    "date": {
-        "start": "2019-07-04T04:27:47+00:00",
-        "end": "2019-07-04T05:27:47+00:00"
-    }	
+    }
 }
 ```  
 
@@ -198,6 +214,7 @@ Route to get medition of one specific road.
 Route to add new medition of one road.  
 * **Path**: /api/roads/
 * **Type**: POST
+* **Headers**: `api-version`: `0.1.0`
 * **Request**:
 ```json
 {
@@ -232,6 +249,11 @@ Route to add new medition of one road.
 * **Response**:
 ```json
 {
-    "identifier": "d091jd012nd01290219d"
+    "api": {
+        "version": "0.1.0"
+    },
+    "data": {
+        "roadIdentifier": "d091jd012nd01290219d"
+    }
 }
 ```  
