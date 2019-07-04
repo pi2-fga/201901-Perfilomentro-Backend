@@ -6,8 +6,6 @@
 
 Perfilometer Server is a NodeJS server to insert and get roads with perfilometer metrics.
 
-The main server is available on [Heroku Apps](https://perfilometer-node.herokuapp.com/)
-
 ## 1. Dependencies
 
 ### Required
@@ -80,3 +78,160 @@ $ npm run autostart
 ```
 
 After the server start, access the url [http://localhost:3000/]()
+
+
+## 4. Server on Heroku
+
+The main server is available on [Heroku Apps](https://perfilometer-node.herokuapp.com/) - https://perfilometer-node.herokuapp.com/
+
+### a. Get all roads:
+
+Route to get medition historic of all roads.  
+* **Path**: /api/roads/
+* **Type**: GET
+* **Response**:
+```json
+{
+    "0": {
+        "identifier": "d12d120dh21dn21",
+        "name": "EPIA Sul - Norte 1",
+        "lasers": {
+            "0": [0, 1, 0, 0, 0],
+            "1": [0, 1, 0, 0, 0],
+            "2": [0, 1, 0, 0, 0],
+            "3": [0, 2, 0, -1, 0],
+            "4": [0, 1, 0, 0, 0]
+        },
+        "locations": {
+            "0": {
+                "latitude": 12.12131412,
+                "longitude": 13.1213131
+            },
+            "1": {
+                "latitude": 12.12131412,
+                "longitude": 13.1213132
+            },
+            "2": {
+                "latitude": 12.12131413,
+                "longitude": 13.1213133
+            }
+        },
+        "date": {
+            "start": "2019-07-04T04:27:47+00:00",
+            "end": "2019-07-04T05:27:47+00:00"
+        }	
+    },
+    "1": {
+        "identifier": "1d0129jd018h0121k2",
+        "name": "EPIA Sul - Norte 2",
+        "lasers": {
+            "0": [0, 1, 1, 0, 2],
+            "1": [0, 1, 0, 0, 0],
+            "2": [1, 3, 0, -1, 0],
+            "3": [0, 2, 0, -1, 0],
+            "4": [0, 1, 0, 0, 0]
+        },
+        "locations": {
+            "0": {
+                "latitude": 12.12131412,
+                "longitude": 13.1213131
+            },
+            "1": {
+                "latitude": 12.12131412,
+                "longitude": 13.1213132
+            },
+            "2": {
+                "latitude": 12.12131413,
+                "longitude": 13.1213133
+            }
+        },
+        "date": {
+            "start": "2019-07-04T04:27:47+00:00",
+            "end": "2019-07-04T05:27:47+00:00"
+        }	
+    }
+}
+```  
+
+
+### b. Get one specific road:
+
+Route to get medition of one specific road.  
+* **Path**: /api/roads/:id
+* **Type**: GET
+* **Query**: identifier of road. Example: `1d0129jd018h0121k2`
+* **Response**:
+```json
+{
+    "identifier": "1d0129jd018h0121k2",
+    "name": "EPIA Sul - Norte 2",
+    "lasers": {
+        "0": [0, 1, 1, 0, 2],
+        "1": [0, 1, 0, 0, 0],
+        "2": [1, 3, 0, -1, 0],
+        "3": [0, 2, 0, -1, 0],
+        "4": [0, 1, 0, 0, 0]
+    },
+    "locations": {
+        "0": {
+            "latitude": 12.12131412,
+            "longitude": 13.1213131
+        },
+        "1": {
+            "latitude": 12.12131412,
+            "longitude": 13.1213132
+        },
+        "2": {
+            "latitude": 12.12131413,
+            "longitude": 13.1213133
+        }
+    },
+    "date": {
+        "start": "2019-07-04T04:27:47+00:00",
+        "end": "2019-07-04T05:27:47+00:00"
+    }	
+}
+```  
+
+### c. Add new road:
+
+Route to add new medition of one road.  
+* **Path**: /api/roads/
+* **Type**: POST
+* **Request**:
+```json
+{
+    "name": "EPIA Sul - Norte 2",
+    "lasers": {
+        "0": [0, 1, 1, 0, 2],
+        "1": [0, 1, 0, 0, 0],
+        "2": [1, 3, 0, -1, 0],
+        "3": [0, 2, 0, -1, 0],
+        "4": [0, 1, 0, 0, 0]
+    },
+    "locations": {
+        "0": {
+            "latitude": 12.12131412,
+            "longitude": 13.1213131
+        },
+        "1": {
+            "latitude": 12.12131412,
+            "longitude": 13.1213132
+        },
+        "2": {
+            "latitude": 12.12131413,
+            "longitude": 13.1213133
+        }
+    },
+    "date": {
+        "start": "2019-07-04T04:27:47+00:00",
+        "end": "2019-07-04T05:27:47+00:00"
+    }	
+}
+```
+* **Response**:
+```json
+{
+    "identifier": "d091jd012nd01290219d"
+}
+```  
