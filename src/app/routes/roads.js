@@ -58,11 +58,14 @@ Router.route('/add')
   console.log('lasers: ', lasers);
   console.log('locations: ', locations);
 
-  const lasersData = fs.readFileSync(lasers.path, 'utf8')
-  const locationsData = fs.readFileSync(locations.path, 'utf8')
+  const lasersData = fs.readFileSync(lasers[0].path, 'utf8')
+  const locationsData = fs.readFileSync(locations[0].path, 'utf8')
 
-  console.log('lasers: ', lasersData);
-  console.log('locations: ', locationsData);
+
+  getDataForLasers(lasersData)
+
+  // console.log('lasers: ', lasersData);
+  // console.log('locations: ', locationsData);
   response.sendStatus(200);
 
   // let body = response.locals.body
@@ -75,6 +78,12 @@ Router.route('/add')
   //   response.status(400).send(body)
   // })
 })
+
+function getDataForLasers(content) {
+  console.log(content)
+  var matches = content.match(/([\S]+)*/);
+  console.log(JSON.stringify(matches) ); 
+}
 
 function permittedParamsFromBody(body) {
   return _.pick(body, [
