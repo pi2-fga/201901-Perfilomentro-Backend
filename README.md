@@ -100,7 +100,7 @@ Route to get medition historic of all roads.
         "roads": [
 			{
                 "identifier": "0s2j01db2buf4fjn",
-				"name": "EPIA Sul - Norte 1",
+				"name": "Road 1",
 				"lasers": [
 				    [0, 1, 0, 0, 0],
 				    [0, 1, 0, 0, 0],
@@ -122,14 +122,11 @@ Route to get medition historic of all roads.
 						"longitude": 13.1213133
 					}
 				],
-				"date": {
-					"start": "2019-07-04T04:27:47+00:00",
-					"end": "2019-07-04T05:27:47+00:00"
-				}	
+				"date": "2019-07-04T05:27:47+00:00"
 			},
 			{
                 "identifier": "1d0129jd018h0121k2",
-				"name": "EPIA Sul - Norte 2",
+				"name": "Road 2",
 				"lasers": [
 				    [0, 1, 1, 0, 2],
 				    [0, 1, 0, 0, 0],
@@ -151,10 +148,7 @@ Route to get medition historic of all roads.
 						"longitude": 13.1213133
 					}
 				],
-				"date": {
-					"start": "2019-07-04T04:27:47+00:00",
-					"end": "2019-07-04T05:27:47+00:00"
-				}	
+				"date": "2019-07-04T05:27:47+00:00"
 			}
 		]
     }
@@ -178,7 +172,7 @@ Route to get medition of one specific road.
     "data": {
         "road": {
             "identifier": "1d0129jd018h0121k2",
-            "name": "EPIA Sul - Norte 2",
+            "name": "Road 1",
             "lasers": [ 
                 [0, 1, 1, 0, 2],
                 [0, 1, 0, 0, 0],
@@ -200,10 +194,7 @@ Route to get medition of one specific road.
                     "longitude": 13.1213133
                 }
             ],
-            "date": {
-                "start": "2019-07-04T04:27:47+00:00",
-                "end": "2019-07-04T05:27:47+00:00"
-            }
+            "date": "2019-07-04T05:27:47+00:00"
         }
     }
 }
@@ -218,34 +209,30 @@ Route to add new medition of one road.
 * **Request**:
 ```json
 {
-    "name": "EPIA Sul - Norte 2",
-    "lasers": {
-        "0": [0, 1, 1, 0, 2],
-        "1": [0, 1, 0, 0, 0],
-        "2": [1, 3, 0, -1, 0],
-        "3": [0, 2, 0, -1, 0],
-        "4": [0, 1, 0, 0, 0]
-    },
-    "locations": {
-        "0": {
+    "lasers": [
+        [0, 1, 1, 0, 2],
+        [0, 1, 0, 0, 0],
+        [1, 3, 0, -1, 0],
+        [0, 2, 0, -1, 0],
+        [0, 1, 0, 0, 0]
+    ],
+    "locations": [
+        {
             "latitude": 12.12131412,
             "longitude": 13.1213131
         },
-        "1": {
+        {
             "latitude": 12.12131412,
             "longitude": 13.1213132
         },
-        "2": {
+        {
             "latitude": 12.12131413,
             "longitude": 13.1213133
         }
-    },
-    "date": {
-        "start": "2019-07-04T04:27:47+00:00",
-        "end": "2019-07-04T05:27:47+00:00"
-    }	
+    ],
 }
 ```
+
 * **Response**:
 ```json
 {
@@ -253,7 +240,7 @@ Route to add new medition of one road.
         "version": "0.1.0"
     },
     "data": {
-        "roadIdentifier": "d091jd012nd01290219d"
+        "road": "d091jd012nd01290219d"
     }
 }
 ```  

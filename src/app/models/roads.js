@@ -1,28 +1,28 @@
 import { mongoose } from '../../db/mongoose'
 
 const roadSchema = new mongoose.Schema({
-  name : {
+  name: {
     required: true,
     type: String,
   },
-  start : {
-    required: true,
-    type : Date,
-    default: Date.now
+  date: {
+    type: Date,
+    default: Date.now,
   },
-  end : {
-    required: true,
-    type : Date,
-    default: Date.now
-  },
-  trajectory : {
-    required: true,
-    type: [Number],
-  },
+  locations: [{
+    latitude: {
+      type: Number
+    },
+    longitude: {
+      type: Number
+    },
+    _id: false
+  }],
   lasers : {
     required: true,
-    type: [Number],
+    type: [[Number]],
   },
+  number: Number,
 })
 
 const Road = mongoose.model('Road', roadSchema)

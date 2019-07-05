@@ -21,10 +21,8 @@ Router.route('/')
 })
 .post((request, response, next) => {
   let body = response.locals.body
-  let user = request.road
 
-  let roadParams = { ...permittedParamsFromBody(request.body) }
-  RoadsController.createOne(roadParams).then((road) => {
+  RoadsController.createOne({ ...permittedParamsFromBody(request.body) }).then((road) => {
     body.data = { road }
     response.send(body)
   }).catch((error) => {
@@ -48,7 +46,11 @@ Router.route('/:roadId')
 })
 
 function permittedParamsFromBody(body) {
-  return _.pick(body, ['name', 'start','end', 'lasers', 'trajectory'])
+  return _.pick(body, [
+    'lasers',
+    'locations',
+    'date'
+  ])
 }
 
 export default Router
