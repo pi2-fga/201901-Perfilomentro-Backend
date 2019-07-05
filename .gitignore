@@ -95,4 +95,6 @@ config.js
 dist/*
 !dist/Procfile
 
+uploads/*
+
 # End of https://www.gitignore.io/api/node

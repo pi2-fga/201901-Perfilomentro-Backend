@@ -1,11 +1,16 @@
 // Modules import
 import express from 'express'
+import multer from 'multer'
 import _ from 'lodash'
+import fs from 'fs'
 
 // Import controller
 import { RoadsController } from '../controllers/roads'
 
 const Router = express.Router()
+const upload = multer({
+  dest: 'uploads/'
+})
 
 Router.route('/')
 .get((request, response, next) => {
@@ -43,6 +48,32 @@ Router.route('/:roadId')
     body.error = error
     response.status(400).send(body)
   })
+})
+
+Router.route('/add')
+.post(upload.fields([{ name: 'lasers' }, { name: 'locations' }]), (request, response, next) => {
+  const lasers = request.files['lasers']
+  const locations = request.files['locations']
+
+  console.log('lasers: ', lasers);
+  console.log('locations: ', locations);
+
+  const lasersData = fs.readFileSync(lasers.path, 'utf8')
+  const locationsData = fs.readFileSync(locations.path, 'utf8')
+
+  console.log('lasers: ', lasersData);
+  console.log('locations: ', locationsData);
+  response.sendStatus(200);
+
+  // let body = response.locals.body
+
+  // RoadsController.createOne({ ...permittedParamsFromBody(request.body) }).then((road) => {
+  //   body.data = { road }
+  //   response.send(body)
+  // }).catch((error) => {
+  //   body.error = error
+  //   response.status(400).send(body)
+  // })
 })
 
 function permittedParamsFromBody(body) {
