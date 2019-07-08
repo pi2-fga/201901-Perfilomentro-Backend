@@ -1,5 +1,8 @@
 // Import Model
 import { Road } from '../models/roads'
+import Coordinates from 'coordinate-parser';
+
+const lasersQuantity = 10
 
 export class RoadsController {
   static async getAll() {
@@ -38,12 +41,59 @@ export class RoadsController {
       const lastRoad = await this.getLastRoad()
       const actualNumber = lastRoad.number + 1
       const name = 'Road ' + actualNumber
+      console.log('roadparam: ', roadParams)
       const road = await new Road({ name, number: actualNumber, ...roadParams }).save()
       return road._id
     } catch(error) {
       throw generateError(error)
     }
   }
+
+  static async addRoad(lasers, locations) {
+    try {
+      const lasersFormatted = formatLasers(lasers)
+      const locationsFormatted = formatLocations(locations)
+
+      return await this.createOne({ lasers: lasersFormatted, locations: locationsFormatted })
+    } catch(error) {
+      throw generateError(error)
+    }
+  }
+}
+
+function formatLasers(data) {
+  let lasers = []
+  let actualIndex = 0
+  for (let index = 0; index < lasersQuantity; index++) {
+    lasers[index] = []
+  }
+  data.forEach(element => {
+    lasers[actualIndex].push(element)
+    actualIndex++
+    actualIndex = actualIndex == lasersQuantity ? 0 : actualIndex
+  });
+
+  return lasers
+}
+
+function formatLocations(data) {
+  let locations = []
+  let needToRead = false
+  data.forEach(element => {
+    if (needToRead) {
+      const matches = element.split(',')
+      const aux = matches[0] + matches[1] + ' ' + matches[2] + matches[3]
+      const position = new Coordinates(aux);
+      locations.push({
+        latitude: position.getLatitude(),
+        longitude: position.getLongitude()
+      })
+    }
+
+    needToRead = !needToRead
+  });
+
+  return locations
 }
 
 function formatRoad(road, withNumber = false) {

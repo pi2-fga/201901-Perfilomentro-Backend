@@ -52,37 +52,25 @@ Router.route('/:roadId')
 
 Router.route('/add')
 .post(upload.fields([{ name: 'lasers' }, { name: 'locations' }]), (request, response, next) => {
+  let body = response.locals.body
+
   const lasers = request.files['lasers']
-  const locations = request.files['locations']
-
-  console.log('lasers: ', lasers);
-  console.log('locations: ', locations);
-
   const lasersData = fs.readFileSync(lasers[0].path, 'utf8')
+  
+  const locations = request.files['locations']
   const locationsData = fs.readFileSync(locations[0].path, 'utf8')
 
-
-  getDataForLasers(lasersData)
-
-  // console.log('lasers: ', lasersData);
-  // console.log('locations: ', locationsData);
-  response.sendStatus(200);
-
-  // let body = response.locals.body
-
-  // RoadsController.createOne({ ...permittedParamsFromBody(request.body) }).then((road) => {
-  //   body.data = { road }
-  //   response.send(body)
-  // }).catch((error) => {
-  //   body.error = error
-  //   response.status(400).send(body)
-  // })
+  RoadsController.addRoad(getRows(lasersData), getRows(locationsData)).then((road) => {
+    body.data = { road }
+    response.send(body)
+  }).catch((error) => {
+    body.error = error
+    response.status(400).send(body)
+  })
 })
 
-function getDataForLasers(content) {
-  console.log(content)
-  var matches = content.match(/([\S]+)*/);
-  console.log(JSON.stringify(matches) ); 
+function getRows(content) {
+  return content.match(/[^\r\n]+/g);
 }
 
 function permittedParamsFromBody(body) {
