@@ -42,5 +42,6 @@ server.listen(config.port, (req, res) => {
 // Prevent Heroku Production from sleeping
 var http = require('http')
 setInterval(() => {
-  http.get('http://perfilometer-go.herokuapp.com')
-}, 300000) // Make a request every 5 minutes
+  console.log('Doing sleep prevent kkk - ', Date.now())
+  http.get('http://vuala.herokuapp.com')
+}, 18000) // Make a request every 3 minutes
