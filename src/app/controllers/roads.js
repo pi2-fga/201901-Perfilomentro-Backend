@@ -2,7 +2,7 @@
 import { Road } from '../models/roads'
 import Coordinates from 'coordinate-parser';
 
-const lasersQuantity = 5
+const lasersQuantity = 2
 
 export class RoadsController {
   static async getAll() {
