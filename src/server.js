@@ -26,13 +26,13 @@ server.use(apiProtocol)
 server.use('/api/roads', roadRouter)
 
 // Use logger when not productions
-if (environment !== "production") {
+// if (environment !== "production") {
   const logger = require("morgan-body")
   logger(server, {
     logRequestBody: true,
     logResponseBody: false,
   })
-}
+// }
 
 // Server listen
 server.listen(config.port, (req, res) => {

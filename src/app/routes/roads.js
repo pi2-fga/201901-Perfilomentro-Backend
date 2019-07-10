@@ -57,10 +57,16 @@ Router.route('/add')
 .post(upload.fields([{ name: 'lasers' }, { name: 'locations' }]), (request, response, next) => {
   let body = response.locals.body
 
+  console.log('files', request.files)
+
   const lasers = request.files['lasers']
+  console.log('lasers file', lasers)
+  
   const lasersData = fs.readFileSync(lasers[0].path, 'utf8')
   
   const locations = request.files['locations']
+  console.log('locations file', locations)
+
   const locationsData = fs.readFileSync(locations[0].path, 'utf8')
 
   RoadsController.addRoad(getRows(lasersData), getRows(locationsData)).then((road) => {
