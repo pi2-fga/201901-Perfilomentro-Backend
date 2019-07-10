@@ -41,7 +41,6 @@ export class RoadsController {
       const lastRoad = await this.getLastRoad()
       const actualNumber = lastRoad.number + 1
       const name = 'Road ' + actualNumber
-      console.log('roadparam: ', roadParams)
       const road = await new Road({ name, number: actualNumber, ...roadParams }).save()
       return road._id
     } catch(error) {
@@ -78,7 +77,7 @@ function formatLasers(data) {
 
 function formatLocations(data) {
   let locations = []
-  let needToRead = false
+  let needToRead = true
   data.forEach(element => {
     if (needToRead) {
       const matches = element.split(',')

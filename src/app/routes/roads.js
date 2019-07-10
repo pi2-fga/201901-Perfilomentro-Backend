@@ -20,6 +20,7 @@ Router.route('/')
     body.data = { roads }
     response.send(body)
   }).catch((error) => {
+    console.log('error all', error)
     body.error = error
     response.status(400).send(body)
   })
@@ -31,6 +32,7 @@ Router.route('/')
     body.data = { road }
     response.send(body)
   }).catch((error) => {
+    console.log('error create', error)
     body.error = error
     response.status(400).send(body)
   })
@@ -45,6 +47,7 @@ Router.route('/:roadId')
     body.data = { road }
     response.send(body)
   }).catch((error) => {
+    console.log('error get', error)
     body.error = error
     response.status(400).send(body)
   })
@@ -64,6 +67,7 @@ Router.route('/add')
     body.data = { road }
     response.send(body)
   }).catch((error) => {
+    console.log('error add', error)
     body.error = error
     response.status(400).send(body)
   })
